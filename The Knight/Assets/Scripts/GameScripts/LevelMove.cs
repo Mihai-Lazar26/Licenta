@@ -17,7 +17,6 @@ public class LevelMove : MonoBehaviour
             _playerData.loadedData.playerCurrentHealth = playerHealth.CurrentHealth;
             _playerData.loadedData.playerPosition = _playerPositon;
             _playerData.loadedData.sceneIndex = _sceneBuildIndex;
-            _playerData.loadedData.SavePlayer();
             SceneManager.LoadScene(_sceneBuildIndex, LoadSceneMode.Single);
         }
     }

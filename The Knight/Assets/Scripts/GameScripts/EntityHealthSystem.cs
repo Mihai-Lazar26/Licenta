@@ -34,6 +34,11 @@ public class EntityHealthSystem : MonoBehaviour
         }
     }
 
+    public void MaxHeal() {
+        _currentHealth = _maxHealth;
+        ReloadHealth();
+    }
+
     public void ReloadHealth() {
         if (_healthBar != null) {
             _healthBar.SetMaxHealth(_maxHealth);

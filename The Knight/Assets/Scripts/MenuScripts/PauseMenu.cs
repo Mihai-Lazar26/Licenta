@@ -44,11 +44,6 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void MainMenuButton() {
-        _loadedData.loadedData.playerPosition = _player.transform.position;
-        EntityHealthSystem playerHealth = _player.GetComponent<EntityHealthSystem>();
-        _loadedData.loadedData.playerMaxHealth = playerHealth.MaxHealth;
-        _loadedData.loadedData.playerCurrentHealth = playerHealth.CurrentHealth;
-        _loadedData.loadedData.SavePlayer();
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
