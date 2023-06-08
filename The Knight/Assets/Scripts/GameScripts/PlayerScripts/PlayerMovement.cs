@@ -169,10 +169,10 @@ public class PlayerMovement : MonoBehaviour
         return new Vector3(transform.position.x + offSetX, transform.position.y + offSetY, transform.position.z);
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         _boxCollider2D = GetComponent<BoxCollider2D>();
-        Gizmos.DrawWireCube(_wallDetector.position, new Vector3(1, _boxCollider2D.bounds.size.y * 0.8f, 0));
         Gizmos.DrawWireCube(_groundDetector.position,new Vector3(_boxCollider2D.bounds.size.x, 0.5f, 0));
+        Gizmos.DrawWireCube(_wallDetector.position, new Vector3(1, _boxCollider2D.bounds.size.y * 0.8f, 0));
 
     }
 
