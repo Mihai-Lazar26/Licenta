@@ -124974,6 +124974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantRangedEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1752162204363393342, guid: 48b1f7b563a01c74790175c52d101a46, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1752162204363393473, guid: 48b1f7b563a01c74790175c52d101a46, type: 3}
       propertyPath: _player
       value: 
@@ -125074,6 +125078,10 @@ PrefabInstance:
     - target: {fileID: 7480703993371298819, guid: f69fb98d8d11c0e4aa8beed91db34cf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480703993371298821, guid: f69fb98d8d11c0e4aa8beed91db34cf7, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7480703993371298821, guid: f69fb98d8d11c0e4aa8beed91db34cf7, type: 3}
       propertyPath: m_Name
