@@ -149,7 +149,7 @@ public class MeleeEnemy : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         _boxCollider = GetComponent<BoxCollider2D>();
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_boxCollider.bounds.center + transform.right * _detectionRange * transform.localScale.x * _distance, 
