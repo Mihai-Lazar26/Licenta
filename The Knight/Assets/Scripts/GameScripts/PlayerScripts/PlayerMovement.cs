@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext context) {
         if (!_playerHealth.IsDead && !_pauseMenu.IsPaused) {
-            _dirX = context.ReadValue<Vector2>().x;
+            _dirX = context.ReadValue<float>();
             // _rb.velocity = new Vector2(_dirX * _moveSpeed, _rb.velocity.y);
         }
     }
