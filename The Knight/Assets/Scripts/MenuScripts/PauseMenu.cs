@@ -13,15 +13,24 @@ public class PauseMenu : MonoBehaviour
 
     private GameObject _player;
 
+    [SerializeField] private GameObject _optionsMenu;
+
     private void Start() {
         _player = GameObject.FindWithTag("Player");
         Time.timeScale = 1;
         _pauseMenuToggle = false;
         _pauseMenu.SetActive(false);
+        _optionsMenu.SetActive(false);
     }
 
     public void Pause(InputAction.CallbackContext context) {
         if (context.performed){
+            if (_optionsMenu.activeSelf) {
+                _optionsMenu.SetActive(false);
+                _pauseMenu.SetActive(true);
+                _pauseMenuToggle = true;
+                return;
+            }
             if (_pauseMenuToggle) {
                 Time.timeScale = 1;
             }
@@ -30,17 +39,25 @@ public class PauseMenu : MonoBehaviour
             }
             _pauseMenuToggle = !_pauseMenuToggle;
             _pauseMenu.SetActive(_pauseMenuToggle);
+            
         }
     }
 
     public void ContinueButton() {
         Time.timeScale = 1;
         _pauseMenuToggle = false;
+        _optionsMenu.SetActive(false);
         _pauseMenu.SetActive(false);
     }
 
     public void OptionsButton() {
-        Debug.Log("Options pressed");
+        _optionsMenu.SetActive(true);
+        _pauseMenu.SetActive(false);
+    }
+
+    public void OptionsMenuBack() {
+        _optionsMenu.SetActive(false);
+        _pauseMenu.SetActive(true);
     }
 
     public void MainMenuButton() {
