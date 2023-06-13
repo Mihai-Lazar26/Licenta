@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class CheckpointScript : MonoBehaviour
 {
     [SerializeField] private LoadedData _loadeData;
+    [SerializeField] private AudioSource _saveSFX;
     private bool _inRange = false;
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -23,6 +24,9 @@ public class CheckpointScript : MonoBehaviour
 
     public void Save(InputAction.CallbackContext context) {
         if (_inRange && context.performed) {
+            if (_saveSFX != null) {
+                _saveSFX.Play();
+            }
             GameObject player = GameObject.FindWithTag("Player");
             _loadeData.loadedData.playerPosition = player.transform.position;
 

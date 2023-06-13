@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerData : ScriptableObject
 {
-    private bool loaded = false;
     public string saveName = "";
     public Vector2 playerPosition;
     public int playerMaxHealth;
@@ -16,9 +15,6 @@ public class PlayerData : ScriptableObject
     }
 
     public void LoadPlayer() {
-        if (loaded)
-            return;
-        loaded = true;
         PlayerDataSerialized playerData = SaveSystem.LoadPlayer(saveName);
         if (playerData == null) {
             SetDefault();

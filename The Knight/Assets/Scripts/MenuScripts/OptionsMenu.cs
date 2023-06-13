@@ -16,6 +16,10 @@ public class OptionsMenu : MonoBehaviour
         _keyBindsMenu.SetActive(false);
     }
 
+    private void OnEnable() {
+        Start();
+    }
+
     public void VolumeButton() {
         _activeMenu.SetActive(false);
         _activeMenu = _soundsMenu;
