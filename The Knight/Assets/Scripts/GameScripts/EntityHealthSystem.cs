@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class EntityHealthSystem : MonoBehaviour
 {
@@ -87,6 +88,8 @@ public class EntityHealthSystem : MonoBehaviour
                 GetComponent<Rigidbody2D>().isKinematic = true;
         }
         else{
+            _playerData.loadedData.LoadPlayer();
+            SceneManager.LoadScene(_playerData.loadedData.sceneIndex, LoadSceneMode.Single);
             Physics2D.IgnoreLayerCollision(7, 9);
         }
         if (_destroyObject) {

@@ -53,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (transform.position.y < -100) {
+            _playerHealth.TakeDamage(_playerHealth.MaxHealth);
+        }
         
         WallSlide();
         if (_kbTimer < _kbDuration) {
