@@ -260,8 +260,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
         {
-            print(action + " " + allCompositeParts + " " + bindingIndex + " " + action.bindings.Count);
-            print(lastGoodAction);
+            // print(action + " " + allCompositeParts + " " + bindingIndex + " " + action.bindings.Count);
+            // print(lastGoodAction);
 
             m_RebindOperation?.Cancel(); // Will null out m_RebindOperation.
 
@@ -280,6 +280,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .OnCancel(
                     operation =>
                     {
+                        
                         if (allCompositeParts && CheckDupplicateBindingsComposite(action, bindingIndex)) {
                             action.RemoveAllBindingOverrides();
                             for (int i = 0; i < action.bindings.Count; ++i) {
@@ -299,7 +300,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .OnComplete(
                     operation =>
                     {
-                        action.Enable();
+                        
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
 
@@ -311,6 +312,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                             return;
                         }
 
+                        action.Enable();
                         UpdateBindingDisplay();
                         CleanUp();
 
