@@ -32,6 +32,8 @@ public class MeleeEnemy : MonoBehaviour
 
     private PlayerCombat _playerCombat;
     private BoxCollider2D _playerCollider;
+    private EntityHealthSystem _enemyHealth;
+    private int _lastHealth;
 
     private void Start()
     {
@@ -44,6 +46,10 @@ public class MeleeEnemy : MonoBehaviour
         _playerCombat = _player.GetComponent<PlayerCombat>();
         _flippingLogic = GetComponent<FlippingGameObject>();
         _followTimer = _followDuration;
+
+        _enemyHealth = GetComponent<EntityHealthSystem>();
+        _lastHealth = _enemyHealth.CurrentHealth;
+
         Physics2D.IgnoreLayerCollision(8, 8);
         Physics2D.IgnoreLayerCollision(8, 9);
     }
@@ -51,6 +57,10 @@ public class MeleeEnemy : MonoBehaviour
     private void Update()
     {
         _followTimer += Time.deltaTime;
+        if(_lastHealth > _enemyHealth.CurrentHealth) {
+            _lastHealth = _enemyHealth.CurrentHealth;
+            _followTimer = 0;
+        }
         if ((PlayerInSight() || _followTimer < _followDuration) && !_playerHealth.IsDead) {
             SetPatrolActive(false);
             if (PlayerInAttackRange()){
