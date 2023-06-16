@@ -39,14 +39,14 @@ public class RangedEnemy : MonoBehaviour
             if (Time.time >= _nextAttackTime) {
                 _nextAttackTime = Time.time + _attackCooldown;
                 _animator.SetTrigger("attack");
-                Shoot();
+                // Shoot();
             }
             
         }
         
     }
 
-    private void Shoot() {
+    public void Shoot() {
         _shootSFX.Play();
         Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
     }
