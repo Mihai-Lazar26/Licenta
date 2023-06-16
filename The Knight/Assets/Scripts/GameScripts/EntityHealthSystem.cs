@@ -89,7 +89,8 @@ public class EntityHealthSystem : MonoBehaviour
         }
         else{
             _playerData.loadedData.LoadPlayer();
-            SceneManager.LoadScene(_playerData.loadedData.sceneIndex, LoadSceneMode.Single);
+            // SceneManager.LoadScene(_playerData.loadedData.sceneIndex, LoadSceneMode.Single);
+            StartCoroutine(LoadLevelAfterDelay(1f));
             Physics2D.IgnoreLayerCollision(7, 9);
         }
         if (_destroyObject) {
@@ -102,5 +103,10 @@ public class EntityHealthSystem : MonoBehaviour
         }
         
         this.enabled = false;
+    }
+    IEnumerator LoadLevelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(_playerData.loadedData.sceneIndex, LoadSceneMode.Single);
     }
 }
